@@ -28,15 +28,14 @@ public abstract class BaseStyle {
         int width = endX - startX;
         int height = endY - startY;
         Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder bufferBuilder = tessellator.getBuffer();
+        BufferBuilder bufferBuilder = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
         RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderTexture(0, identifier);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
-        bufferBuilder.vertex(startX, endY, 0.0D).texture(0.0F, height / 32.0F).color(64, 64, 64, 255).next();
-        bufferBuilder.vertex(endX, endY, 0.0D).texture(width / 32.0F, height / 32.0F).color(64, 64, 64, 255).next();
-        bufferBuilder.vertex(endX, startY, 0.0D).texture(width / 32.0F, 0).color(64, 64, 64, 255).next();
-        bufferBuilder.vertex(startX, startY, 0.0D).texture(0.0F, 0).color(64, 64, 64, 255).next();
-        tessellator.draw();
+        bufferBuilder.vertex(startX, endY, 0.0F).texture(0.0F, height / 32.0F).color(64, 64, 64, 255);
+        bufferBuilder.vertex(endX, endY, 0.0F).texture(width / 32.0F, height / 32.0F).color(64, 64, 64, 255);
+        bufferBuilder.vertex(endX, startY, 0.0F).texture(width / 32.0F, 0).color(64, 64, 64, 255);
+        bufferBuilder.vertex(startX, startY, 0.0F).texture(0.0F, 0).color(64, 64, 64, 255);
+        BufferRenderer.drawWithGlobalProgram(bufferBuilder.end());
     }
 }

@@ -14,17 +14,20 @@ Add a quit confirm screen/toast to avoid mistakenly quitting the game.
 '''
 logoFile = "assets/confirmquit/icon.png"
 
+[[mixins]]
+config = "confirmquit.mixins.json"
+
 [[dependencies.confirmquit]]
 modId = "neoforge"
 type = "required"
-versionRange = "[20.5,)"
+versionRange = "[21.0,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.confirmquit]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.20.5,)"
+versionRange = "[1.21,)"
 ordering = "NONE"
 side = "BOTH"
 

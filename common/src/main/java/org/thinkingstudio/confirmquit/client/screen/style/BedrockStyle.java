@@ -18,8 +18,8 @@ import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
 import java.awt.*;
 
 public class BedrockStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = new Identifier(ConfirmQuit.MOD_ID, "textures/gui/bedrock/window.png");
-    private static final Identifier BACKGROUND = new Identifier(ConfirmQuit.MOD_ID, "textures/gui/bedrock/background.png");
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/bedrock/window.png");
+    private static final Identifier BACKGROUND = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/bedrock/background.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
