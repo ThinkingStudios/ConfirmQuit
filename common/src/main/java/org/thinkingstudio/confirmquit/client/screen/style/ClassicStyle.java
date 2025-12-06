@@ -62,16 +62,15 @@ public class ClassicStyle extends BaseStyle {
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
                        DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        this.renderBackground(drawContext, screen);
+        renderBackground(drawContext, screen, mouseX, mouseY, delta);
         drawTextAndMessage(textRenderer, screen, title, message, drawContext);
-
     }
 
-    public void renderBackground(DrawContext drawContext, Screen screen) {
+    public void renderBackground(DrawContext drawContext, Screen screen, int mouseX, int mouseY, float delta) {
         if (MinecraftClient.getInstance().world != null) {
-                drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
+            drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
         } else {
-            screen.renderBackgroundTexture(drawContext);
+            screen.renderBackground(drawContext, mouseX, mouseY, delta);
         }
     }
 

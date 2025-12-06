@@ -74,17 +74,16 @@ public class BedrockStyle extends BaseStyle {
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
                        DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        drawBackground(client, screen, drawContext);
+        drawBackground(client, screen, drawContext, mouseX, mouseY, delta);
         drawWindow(textRenderer, title, drawContext, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
         drawMessage(textRenderer, screen, message, drawContext);
     }
 
-    private void drawBackground(MinecraftClient client, Screen screen, DrawContext drawContext) {
+    private void drawBackground(MinecraftClient client, Screen screen, DrawContext drawContext, int mouseX, int mouseY, float delta) {
         if (client.world != null) {
             drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
         } else {
-            screen.renderBackgroundTexture(drawContext);
-            drawContext.fill(0, 0, screen.width, screen.height, new Color(16, 16, 16, 179).getRGB());
+            screen.renderBackground(drawContext, mouseX, mouseY, delta);
         }
     }
 
@@ -94,7 +93,7 @@ public class BedrockStyle extends BaseStyle {
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
         drawContext.drawTexture(WINDOW_TEXTURE, x, y, 0, 0, 252, 140);
-        drawContext.drawTextWithShadow(textRenderer, title, x + 8, y + 6, 4210752);
+        drawContext.drawText(textRenderer, title, x + 8, y + 6, 4210752, false);
     }
 
 
