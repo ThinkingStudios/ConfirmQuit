@@ -22,6 +22,8 @@
   "text.autoconfig.confirmquit.option.enableScreenShortcutKey.@Tooltip": "Enable using [Enter | Esc] to [confirm | close the screen]",
   "text.autoconfig.confirmquit.option.buttonWaitTime": "Duration for keeping the confirm screen button disabled",
   "text.autoconfig.confirmquit.option.buttonWaitTime.@Tooltip": "The buttons on the screen will only become active after the specified number of milliseconds.",
+  "text.autoconfig.confirmquit.option.enableTextFieldConfirm": "Enable the text field to confirm",
+  "text.autoconfig.confirmquit.option.textFieldConfirmText": "Confirm text in text field",
   "text.autoconfig.confirmquit.option.confirmScreenStyle": "Confirm screen style",
   "text.autoconfig.confirmquit.option.toastConfirmDisplayTime": "Toast duration",
   "text.autoconfig.confirmquit.option.toastConfirmDisplayTime.@Tooltip": "How long the Toast stays on the screen",

@@ -14,17 +14,19 @@
   "config.confirmquit.confirmtype.none": "关",
   "config.confirmquit.screentype.classic": "经典",
   "config.confirmquit.screentype.bedrock": "基岩版",
-  "text.autoconfig.confirmquit.title": "退出确认设置",
+  "text.autoconfig.confirmquit.title": "退出确认-设置",
   "text.autoconfig.confirmquit.option.confirmTypeInFinalQuit": "当关闭游戏窗口时",
   "text.autoconfig.confirmquit.option.confirmTypeInSingleplayer": "当退出单人游戏时",
   "text.autoconfig.confirmquit.option.confirmTypeInMultiplayer": "当退出多人游戏时",
   "text.autoconfig.confirmquit.option.enableScreenShortcutKey": "允许在确认屏幕上使用快捷键",
   "text.autoconfig.confirmquit.option.enableScreenShortcutKey.@Tooltip": "启用使用 [Enter | Esc] 键来 [确认 | 关闭屏幕]",
   "text.autoconfig.confirmquit.option.buttonWaitTime": "保持确认屏幕按钮不可用时长",
-  "text.autoconfig.confirmquit.option.buttonWaitTime.@Tooltip": "仅在设置的毫秒数之后，屏幕上的按钮才会激活",
+  "text.autoconfig.confirmquit.option.buttonWaitTime.@Tooltip": "仅在达到这个数值的毫秒数之后，屏幕上的按钮才会激活",
+  "text.autoconfig.confirmquit.option.enableTextFieldConfirm": "启用文本框确认",
+  "text.autoconfig.confirmquit.option.textFieldConfirmText": "文本框确认文本",
   "text.autoconfig.confirmquit.option.confirmScreenStyle": "确认屏幕样式",
   "text.autoconfig.confirmquit.option.toastConfirmDisplayTime": "弹窗持续时间",
   "text.autoconfig.confirmquit.option.toastConfirmDisplayTime.@Tooltip": "弹窗在屏幕上停留多长时间",
   "text.autoconfig.confirmquit.option.toastConfirmDelayTime": "弹窗响应延迟时间",
-  "text.autoconfig.confirmquit.option.toastConfirmDelayTime.@Tooltip": "只有当从Toast出现起经过的毫秒数达到这个数值时，操作才会生效"
+  "text.autoconfig.confirmquit.option.toastConfirmDelayTime.@Tooltip": "只有当从弹窗出现起经过的毫秒数达到这个数值时，操作才会生效"
 }

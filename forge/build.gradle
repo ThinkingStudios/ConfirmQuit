@@ -33,7 +33,7 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:$rootProject.forge_version"
 
-    modImplementation "me.shedaniel.cloth:cloth-config-forge:11.1.136"
+    modImplementation "me.shedaniel.cloth:cloth-config-forge:$rootProject.cloth_config_version"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')

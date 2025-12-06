@@ -18,10 +18,10 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 0, max = 10000)
     public long buttonWaitTime = 1000L;
-    public boolean enableTextConfirm = true;
-    public String confirmText = "TexTrue";
+    public boolean enableTextFieldConfirm = true;
+    public String textFieldConfirmText = "BocchiChan";
     @ConfigEntry.Gui.EnumHandler(option = ConfigEntry.Gui.EnumHandler.EnumDisplayOption.BUTTON)
-    public ScreenStyle confirmScreenStyle = ScreenStyle.BEDROCK;
+    public ScreenStyle confirmScreenStyle = ScreenStyle.CLASSIC;
     @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 0, max = 10000)
     public long toastConfirmDisplayTime = 5000L;

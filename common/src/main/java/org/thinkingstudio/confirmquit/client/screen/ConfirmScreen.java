@@ -55,8 +55,8 @@ public class ConfirmScreen extends Screen {
         confirmTextField = style.generateConfirmTextField(textRenderer, this);
 
         confirm = style.generateConfirmButtons(this, button -> {
-            if (ConfigHelper.getConfig().enableTextConfirm) {
-                if (confirmTextField.getText() != null && confirmTextField.getText().equals(ConfigHelper.getConfig().confirmText)) {
+            if (ConfigHelper.getConfig().enableTextFieldConfirm) {
+                if (confirmTextField.getText() != null && confirmTextField.getText().equals(ConfigHelper.getConfig().textFieldConfirmText)) {
                     confirmTextError = false;
                     confirmed = true;
                     onConfirm.run();
@@ -84,7 +84,7 @@ public class ConfirmScreen extends Screen {
         style.render(this.client, this.textRenderer, this, title, message, drawContext, mouseX, mouseY, delta);
         super.render(drawContext, mouseX, mouseY, delta);
 
-        if (ConfigHelper.getConfig().enableTextConfirm) {
+        if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             confirmTextField.render(drawContext, mouseX, mouseY, delta);
             if (confirmTextError) {
                 style.drawConfirmTextError(drawContext, textRenderer, this);

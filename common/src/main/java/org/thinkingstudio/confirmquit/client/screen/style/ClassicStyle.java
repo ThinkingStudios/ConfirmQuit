@@ -44,9 +44,9 @@ public class ClassicStyle extends BaseStyle {
 
     @Override
     public TextFieldWidget generateConfirmTextField(TextRenderer textRenderer, Screen screen) {
-        this.textFieldMessage = Text.translatable("screen.confirmquit.confirm.textfield", ConfigHelper.getConfig().confirmText);
+        this.textFieldMessage = Text.translatable("screen.confirmquit.confirm.textfield", ConfigHelper.getConfig().textFieldConfirmText);
         TextFieldWidget confirmTextField = new TextFieldWidget(textRenderer, screen.width / 2 - 100, screen.height / 2 - 10, 200, 20, textFieldMessage);
-        confirmTextField.setVisible(ConfigHelper.getConfig().enableTextConfirm);
+        confirmTextField.setVisible(ConfigHelper.getConfig().enableTextFieldConfirm);
 
         return confirmTextField;
     }
@@ -80,15 +80,15 @@ public class ClassicStyle extends BaseStyle {
                 screen.width / 2,
                 titleTMargin,
                 16777215);
-        if (ConfigHelper.getConfig().enableTextConfirm) {
+        drawContext.drawCenteredTextWithShadow(textRenderer, message,
+                screen.width / 2,
+                screen.height / 2 - 30,
+                10526880);
+        if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     screen.height / 2 - 50,
                     10526880);
         }
-        drawContext.drawCenteredTextWithShadow(textRenderer, message,
-                screen.width / 2,
-                screen.height / 2 - 30,
-                10526880);
     }
 }

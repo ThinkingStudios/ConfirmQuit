@@ -56,9 +56,9 @@ public class BedrockStyle extends BaseStyle {
 
     @Override
     public TextFieldWidget generateConfirmTextField(TextRenderer textRenderer, Screen screen) {
-        this.textFieldMessage = Text.translatable("screen.confirmquit.confirm.textfield", ConfigHelper.getConfig().confirmText);
+        this.textFieldMessage = Text.translatable("screen.confirmquit.confirm.textfield", ConfigHelper.getConfig().textFieldConfirmText);
         TextFieldWidget confirmTextField = new TextFieldWidget(textRenderer, screen.width / 2 - 100, (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 15, 200, 20, textFieldMessage);
-        confirmTextField.setVisible(ConfigHelper.getConfig().enableTextConfirm);
+        confirmTextField.setVisible(ConfigHelper.getConfig().enableTextFieldConfirm);
 
         return confirmTextField;
     }
@@ -103,7 +103,7 @@ public class BedrockStyle extends BaseStyle {
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin,
                 10526880);
-        if (ConfigHelper.getConfig().enableTextConfirm) {
+        if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     (screen.height - windowHeight) / 2 + windowHeight - messageBMargin - 15,
