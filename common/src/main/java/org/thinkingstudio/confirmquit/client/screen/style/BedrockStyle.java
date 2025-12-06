@@ -83,7 +83,7 @@ public class BedrockStyle extends BaseStyle {
         if (client.world != null) {
             drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
         } else {
-            screen.renderBackground(drawContext);
+            screen.renderBackgroundTexture(drawContext);
             drawContext.fill(0, 0, screen.width, screen.height, new Color(16, 16, 16, 179).getRGB());
         }
     }
@@ -92,7 +92,7 @@ public class BedrockStyle extends BaseStyle {
         renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableBlend();
-        RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
+        //RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
         drawContext.drawTexture(WINDOW_TEXTURE, x, y, 0, 0, 252, 140);
         drawContext.drawTextWithShadow(textRenderer, title, x + 8, y + 6, 4210752);
     }

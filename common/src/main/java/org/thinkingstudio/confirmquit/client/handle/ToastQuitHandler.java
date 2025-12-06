@@ -1,7 +1,7 @@
 package org.thinkingstudio.confirmquit.client.handle;
 
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
-import org.thinkingstudio.confirmquit.client.event.base.api.event.EventResult;
+import org.thinkingstudio.confirmquit.client.event.base.api.EventResult;
 import org.thinkingstudio.confirmquit.client.toast.QuitToast;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;

@@ -1,7 +1,7 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[1,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT"
 
 [[mods]]
 modId = "confirmquit"
@@ -15,22 +15,22 @@ Add a quit confirm screen/toast to avoid mistakenly quitting the game.
 logoFile = "assets/confirmquit/icon.png"
 
 [[dependencies.confirmquit]]
-modId = "forge"
+modId = "neoforge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[20.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.confirmquit]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1,)"
+versionRange = "[1.20.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.confirmquit]]
 modId = "cloth_config"
 mandatory = true
-versionRange = "[9.2.14,)"
+versionRange = "*"
 ordering = "AFTER"
 side = "BOTH"

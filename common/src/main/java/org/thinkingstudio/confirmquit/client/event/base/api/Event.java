@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.thinkingstudio.confirmquit.client.event.base.api.event;
+package org.thinkingstudio.confirmquit.client.event.base.api;
 
 import org.jetbrains.annotations.ApiStatus;
 

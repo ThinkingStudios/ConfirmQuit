@@ -31,7 +31,7 @@ import com.google.common.collect.MapMaker;
 
 import net.minecraft.util.Identifier;
 
-import org.thinkingstudio.confirmquit.client.event.base.api.event.Event;
+import org.thinkingstudio.confirmquit.client.event.base.api.Event;
 
 public final class EventFactoryImpl {
 	private static final Set<ArrayBackedEvent<?>> ARRAY_BACKED_EVENTS

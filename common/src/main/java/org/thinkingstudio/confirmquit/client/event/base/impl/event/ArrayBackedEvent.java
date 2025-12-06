@@ -27,7 +27,7 @@ import java.util.function.Function;
 
 import net.minecraft.util.Identifier;
 
-import org.thinkingstudio.confirmquit.client.event.base.api.event.Event;
+import org.thinkingstudio.confirmquit.client.event.base.api.Event;
 import org.thinkingstudio.confirmquit.client.event.base.impl.toposort.NodeSorting;
 
 class ArrayBackedEvent<T> extends Event<T> {
