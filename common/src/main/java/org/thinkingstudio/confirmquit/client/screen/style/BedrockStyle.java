@@ -92,7 +92,7 @@ public class BedrockStyle extends BaseStyle {
         renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableBlend();
-        //RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
+        RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
         drawContext.drawTexture(WINDOW_TEXTURE, x, y, 0, 0, 252, 140);
         drawContext.drawTextWithShadow(textRenderer, title, x + 8, y + 6, 4210752);
     }
