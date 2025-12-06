@@ -14,6 +14,9 @@ Add a quit confirm screen/toast to avoid mistakenly quitting the game.
 '''
 logoFile = "assets/confirmquit/icon.png"
 
+[[mixins]]
+config = "confirmquit.mixins.json"
+
 [[dependencies.confirmquit]]
 modId = "neoforge"
 type = "required"
