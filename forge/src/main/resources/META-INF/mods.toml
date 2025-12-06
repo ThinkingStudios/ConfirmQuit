@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT"
 
 [[mods]]
 modId = "confirmquit"
@@ -31,6 +31,6 @@ side = "BOTH"
 [[dependencies.confirmquit]]
 modId = "cloth_config"
 mandatory = true
-versionRange = "[9.2.14,)"
+versionRange = "*"
 ordering = "AFTER"
 side = "BOTH"

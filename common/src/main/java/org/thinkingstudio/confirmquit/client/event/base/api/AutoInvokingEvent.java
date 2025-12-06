@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.thinkingstudio.confirmquit.client.event.base.api.event;
+package org.thinkingstudio.confirmquit.client.event.base.api;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

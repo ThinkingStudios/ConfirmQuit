@@ -1,8 +1,8 @@
 package org.thinkingstudio.confirmquit.client.event;
 
-import org.thinkingstudio.confirmquit.client.event.base.api.event.Event;
-import org.thinkingstudio.confirmquit.client.event.base.api.event.EventFactory;
-import org.thinkingstudio.confirmquit.client.event.base.api.event.EventResult;
+import org.thinkingstudio.confirmquit.client.event.base.api.Event;
+import org.thinkingstudio.confirmquit.client.event.base.api.EventFactory;
+import org.thinkingstudio.confirmquit.client.event.base.api.EventResult;
 
 public class ClientScheduleStopEvent {
     public static final Event<ClientScheduleStop> CLIENT_SCHEDULE_STOP = EventFactory.createArrayBacked(ClientScheduleStop.class,

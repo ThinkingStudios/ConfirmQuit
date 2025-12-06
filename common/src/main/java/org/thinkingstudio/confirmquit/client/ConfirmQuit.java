@@ -7,7 +7,7 @@ import org.thinkingstudio.confirmquit.client.config.ConfirmType;
 import org.thinkingstudio.confirmquit.client.config.ModConfig;
 import org.thinkingstudio.confirmquit.client.event.ButtonPressEvent;
 import org.thinkingstudio.confirmquit.client.event.ClientScheduleStopEvent;
-import org.thinkingstudio.confirmquit.client.event.base.api.event.EventResult;
+import org.thinkingstudio.confirmquit.client.event.base.api.EventResult;
 import org.thinkingstudio.confirmquit.client.handle.ToastQuitHandler;
 import org.thinkingstudio.confirmquit.client.screen.ConfirmScreen;
 import net.minecraft.client.MinecraftClient;

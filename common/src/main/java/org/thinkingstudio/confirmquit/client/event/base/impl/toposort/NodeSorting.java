@@ -25,8 +25,8 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 import com.google.common.annotations.VisibleForTesting;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import org.thinkingstudio.confirmquit.client.ConfirmQuit;
 
 /**
  * Contains a topological sort implementation, with tie breaking using a {@link Comparator}.
@@ -42,8 +42,6 @@ import org.slf4j.LoggerFactory;
  * </ol>
  */
 public class NodeSorting {
-	private static final Logger LOGGER = LoggerFactory.getLogger("fabric-api-base");
-
 	@VisibleForTesting
 	public static boolean ENABLE_CYCLE_WARNING = true;
 
@@ -132,7 +130,7 @@ public class NodeSorting {
 						builder.append("\t").append(node.getDescription()).append("\n");
 					}
 
-					LOGGER.warn(builder.toString());
+					ConfirmQuit.LOGGER.warn(builder.toString());
 				}
 			}
 

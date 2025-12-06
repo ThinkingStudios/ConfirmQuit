@@ -1,7 +1,9 @@
 package org.thinkingstudio.confirmquit.client.screen;
 
+import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
+import org.thinkingstudio.confirmquit.client.mixin.ScreenAccessor;
 import org.thinkingstudio.confirmquit.client.screen.style.BaseStyle;
 
 import net.minecraft.client.gui.DrawContext;
@@ -82,7 +84,9 @@ public class ConfirmScreen extends Screen {
     @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
         style.render(this.client, this.textRenderer, this, title, message, drawContext, mouseX, mouseY, delta);
-        super.render(drawContext, mouseX, mouseY, delta);
+        for (Drawable drawable : ((ScreenAccessor) this).getDrawables()) {
+            drawable.render(drawContext, mouseX, mouseY, delta);
+        }
 
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             confirmTextField.render(drawContext, mouseX, mouseY, delta);
