@@ -9,7 +9,10 @@ import net.minecraft.util.Identifier;
 import org.thinkingstudio.confirmquit.client.ConfirmQuit;
 
 public abstract class BaseToast implements Toast {
-    protected static final Identifier texture = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/toasts.png");
+    protected static final Identifier TEXTURE_DARK = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/toast/background_dark.png");
+    protected static final Identifier TEXTURE_LIGHT = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/toast/background_light.png");
+    protected static final Identifier ICON = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/toast/icon.png");
+
     protected final Text title;
     protected final Text message;
     protected final long keepTime;

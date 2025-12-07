@@ -5,8 +5,7 @@ import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.text.Text;
-
-import java.awt.*;
+import net.minecraft.util.Colors;
 
 public class QuitToast extends BaseToast {
     public QuitToast(Text message, long keepTime) {
@@ -25,11 +24,11 @@ public class QuitToast extends BaseToast {
 
     @Override
     protected void drawToast(DrawContext drawContext, TextRenderer textRenderer) {
-        RenderSystem.setShaderTexture(0, texture);
+        RenderSystem.setShaderTexture(0, TEXTURE_DARK);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        drawContext.drawGuiTexture(RenderLayer::getGuiTexturedOverlay, texture, 0, 0, getWidth(), getHeight());
-        drawContext.drawGuiTexture(RenderLayer::getGuiTextured, texture, 8, 0, 0, 0,242, 0, 15, 30);
-        drawContext.drawTextWithShadow(textRenderer, title, 35, 7, Color.WHITE.getRGB());
-        drawContext.drawTextWithShadow(textRenderer, message, 35, 18, Color.WHITE.getRGB());
+        drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE_DARK, 0, 0, 0, 0, getWidth(), getHeight(), getWidth(), getHeight());
+        drawContext.drawTexture(RenderLayer::getGuiTextured, ICON, 8, 6, 0, 0, 15, 20, 15, 20);
+        drawContext.drawTextWithShadow(textRenderer, title, 35, 7, Colors.WHITE);
+        drawContext.drawTextWithShadow(textRenderer, message, 35, 18, Colors.WHITE);
     }
 }
