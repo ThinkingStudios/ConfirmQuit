@@ -10,8 +10,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.util.Formatting;
+import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import org.thinkingstudio.confirmquit.client.ConfirmQuit;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
@@ -69,7 +68,7 @@ public class BedrockStyle extends BaseStyle {
         drawContext.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.confirmquit.confirm.textfield.error"),
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 45,
-                TextColor.fromFormatting(Formatting.RED).getRgb());
+                Colors.RED);
     }
 
     @Override
