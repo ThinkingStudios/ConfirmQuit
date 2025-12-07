@@ -3,6 +3,7 @@ package org.thinkingstudio.confirmquit.client.screen.style;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gl.ShaderProgramKeys;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -29,7 +30,7 @@ public abstract class BaseStyle {
         int height = endY - startY;
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferBuilder = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
-        RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
+        RenderSystem.setShader(ShaderProgramKeys.POSITION_TEX_COLOR);
         RenderSystem.setShaderTexture(0, identifier);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         bufferBuilder.vertex(startX, endY, 0.0F).texture(0.0F, height / 32.0F).color(64, 64, 64, 255);

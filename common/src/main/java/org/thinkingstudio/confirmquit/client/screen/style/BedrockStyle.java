@@ -7,6 +7,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
@@ -92,7 +93,7 @@ public class BedrockStyle extends BaseStyle {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
-        drawContext.drawTexture(WINDOW_TEXTURE, x, y, 0, 0, 252, 140);
+        drawContext.drawTexture(RenderLayer::getGuiTextured, WINDOW_TEXTURE, x, y, 0.0F, 0.0F, 252, 140, 252, 140);
         drawContext.drawText(textRenderer, title, x + 8, y + 6, 4210752, false);
     }
 

@@ -1,8 +1,9 @@
 package org.thinkingstudio.confirmquit.client.toast;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.toast.ToastManager;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.text.Text;
 
 import java.awt.*;
@@ -23,12 +24,12 @@ public class QuitToast extends BaseToast {
     }
 
     @Override
-    protected void drawToast(DrawContext drawContext, ToastManager manager) {
+    protected void drawToast(DrawContext drawContext, TextRenderer textRenderer) {
         RenderSystem.setShaderTexture(0, texture);
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
-        drawContext.drawTexture(texture, 0, 0, 0, 0, getWidth(), getHeight());
-        drawContext.drawTexture(texture, 8, 0, 242, 0, 15, 30);
-        drawContext.drawTextWithShadow(manager.getClient().textRenderer, title, 35, 7, Color.WHITE.getRGB());
-        drawContext.drawTextWithShadow(manager.getClient().textRenderer,  message, 35, 18, Color.WHITE.getRGB());
+        drawContext.drawGuiTexture(RenderLayer::getGuiTexturedOverlay, texture, 0, 0, getWidth(), getHeight());
+        drawContext.drawGuiTexture(RenderLayer::getGuiTextured, texture, 8, 0, 0, 0,242, 0, 15, 30);
+        drawContext.drawTextWithShadow(textRenderer, title, 35, 7, Color.WHITE.getRGB());
+        drawContext.drawTextWithShadow(textRenderer, message, 35, 18, Color.WHITE.getRGB());
     }
 }
