@@ -18,7 +18,6 @@ import java.awt.*;
 
 public class BedrockStyle extends BaseStyle {
     private static final Identifier WINDOW_TEXTURE = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/style/bedrock/window.png");
-    private static final Identifier BACKGROUND = Identifier.of(ConfirmQuit.MOD_ID, "textures/gui/style/bedrock/background.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -73,21 +72,17 @@ public class BedrockStyle extends BaseStyle {
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
                        DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        drawBackground(client, screen, drawContext);
         drawWindow(textRenderer, title, drawContext, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
         drawMessage(textRenderer, screen, message, drawContext);
     }
 
-    private void drawBackground(MinecraftClient client, Screen screen, DrawContext drawContext) {
-        if (client.world != null) {
-            drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
-        } else {
-            screen.renderInGameBackground(drawContext);
-        }
-    }
-
     private void drawWindow(TextRenderer textRenderer, Text title, DrawContext drawContext, int x, int y) {
-        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND, drawContext);
+        int endX = x + windowWidth;
+        int endY = y + windowHeight;
+        int width = endX - x;
+        int height = endY - y;
+
+        drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, INWORLD_MENU_BACKGROUND_TEXTURE, x + 4, y + 4, 0, 0, width - 4, height - 4, 32, 32);
         drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0.0F, 0.0F, 252, 140, 252, 140);
         drawContext.drawText(textRenderer, title, x + 8, y + 6, Colors.DARK_GRAY, false);
     }
