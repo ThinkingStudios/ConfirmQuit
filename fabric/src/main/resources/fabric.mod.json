@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "confirmquit",
+  "id": "rusurequit",
   "version": "${version}",
   "name": "ConfirmQuit",
   "description": "QuitConfirm unofficial multi-modloader port. Add a quit confirm screen/toast to avoid mistakenly quitting the game.",
@@ -12,18 +12,18 @@
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
   "license": "MIT",
-  "icon": "assets/confirmquit/icon.png",
+  "icon": "assets/rusurequit/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
-      "org.thinkingstudio.confirmquit.client.fabric.ConfirmQuitFabricClient"
+      "org.thinkingstudio.rusurequit.client.fabric.RuSureQuitFabricClient"
     ],
     "modmenu": [
-      "org.thinkingstudio.confirmquit.client.fabric.ConfirmQuitModMenu"
+      "org.thinkingstudio.rusurequit.client.fabric.RuSureQuitModMenu"
     ]
   },
   "mixins": [
-    "confirmquit.mixins.json"
+    "rusurequit.mixins.json"
   ],
   "depends": {
     "fabricloader": "*",

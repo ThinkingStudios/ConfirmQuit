@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "org.thinkingstudio.rusurequit.client.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "client": [
+    "MixinButtonWidget",
+    "MixinMinecraftClient",
+    "ScreenAccessor"
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
