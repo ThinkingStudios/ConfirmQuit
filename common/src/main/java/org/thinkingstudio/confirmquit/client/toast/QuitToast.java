@@ -1,6 +1,5 @@
 package org.thinkingstudio.confirmquit.client.toast;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderLayer;
@@ -24,8 +23,6 @@ public class QuitToast extends BaseToast {
 
     @Override
     protected void drawToast(DrawContext drawContext, TextRenderer textRenderer) {
-        RenderSystem.setShaderTexture(0, TEXTURE_DARK);
-        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
         drawContext.drawTexture(RenderLayer::getGuiTextured, TEXTURE_DARK, 0, 0, 0, 0, getWidth(), getHeight(), getWidth(), getHeight());
         drawContext.drawTexture(RenderLayer::getGuiTextured, ICON, 8, 6, 0, 0, 15, 20, 15, 20);
         drawContext.drawTextWithShadow(textRenderer, title, 35, 7, Colors.WHITE);

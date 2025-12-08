@@ -88,7 +88,7 @@ public class BedrockStyle extends BaseStyle {
     }
 
     private void drawWindow(TextRenderer textRenderer, Text title, DrawContext drawContext, int x, int y) {
-        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND);
+        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND, drawContext);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
@@ -101,12 +101,12 @@ public class BedrockStyle extends BaseStyle {
         drawContext.drawCenteredTextWithShadow(textRenderer, message,
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin,
-                10526880);
+                Colors.WHITE);
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     (screen.height - windowHeight) / 2 + windowHeight - messageBMargin - 15,
-                    10526880);
+                    Colors.WHITE);
         }
     }
 }
