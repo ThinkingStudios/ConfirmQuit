@@ -20,14 +20,14 @@ config = "confirmquit.mixins.json"
 [[dependencies.confirmquit]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.6,)"
+versionRange = "[21.9,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.confirmquit]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.6,)"
+versionRange = "[1.21.9,)"
 ordering = "NONE"
 side = "BOTH"
 
