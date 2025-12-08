@@ -1,10 +1,9 @@
 package org.thinkingstudio.confirmquit.client.screen;
 
-import net.minecraft.client.gui.Drawable;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import org.lwjgl.glfw.GLFW;
+import net.minecraft.client.input.KeyInput;
+import net.minecraft.client.util.InputUtil;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
-import org.thinkingstudio.confirmquit.client.mixin.ScreenAccessor;
 import org.thinkingstudio.confirmquit.client.screen.style.BaseStyle;
 
 import net.minecraft.client.gui.DrawContext;
@@ -24,6 +23,17 @@ public class ConfirmScreen extends Screen {
 
     private boolean confirmed = false;
     public static boolean confirmTextError = false;
+
+    // 按钮宽度
+    private static final int buttonWidth = 150;
+    // 按钮长度
+    private static final int buttonHeight = 20;
+    // 按钮间隔
+    private static final int buttonFMargin = 10;
+    // 按钮下边距
+    private static final int buttonBMargin = 40;
+    // 标题上边距
+    private static final int titleTMargin = 30;
 
     public boolean isConfirmed() {
         return confirmed;
@@ -83,10 +93,8 @@ public class ConfirmScreen extends Screen {
 
     @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        style.render(this.client, this.textRenderer, this, title, message, drawContext, mouseX, mouseY, delta);
-        for (Drawable drawable : ((ScreenAccessor) this).getDrawables()) {
-            drawable.render(drawContext, mouseX, mouseY, delta);
-        }
+        style.render(this.client, this.textRenderer, this, title, message, drawContext);
+        super.render(drawContext, mouseX, mouseY, delta);
 
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             confirmTextField.render(drawContext, mouseX, mouseY, delta);
@@ -97,11 +105,11 @@ public class ConfirmScreen extends Screen {
     }
 
     @Override
-    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (ConfigHelper.getConfig().enableScreenShortcutKey && keyCode == GLFW.GLFW_KEY_ENTER) {
+    public boolean keyPressed(KeyInput keyInput) {
+        if (ConfigHelper.getConfig().enableScreenShortcutKey && keyInput.getKeycode() == InputUtil.GLFW_KEY_ENTER) {
             onConfirm.run();
         }
-        return super.keyPressed(keyCode, scanCode, modifiers);
+        return super.keyPressed(keyInput);
     }
 
     @Override

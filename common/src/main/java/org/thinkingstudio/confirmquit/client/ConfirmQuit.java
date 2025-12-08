@@ -2,6 +2,8 @@ package org.thinkingstudio.confirmquit.client;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+import net.minecraft.client.input.MouseInput;
+import net.minecraft.client.util.InputUtil;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
 import org.thinkingstudio.confirmquit.client.config.ConfirmType;
 import org.thinkingstudio.confirmquit.client.config.ModConfig;
@@ -53,7 +55,7 @@ public class ConfirmQuit {
                     return toastInSinglePlayerQuitHandle.trigger();
                 }
                 if (ConfigHelper.getConfig().confirmTypeInSingleplayer == ConfirmType.SCREEN) {
-                    MinecraftClient.getInstance().setScreen(new ConfirmScreen(MinecraftClient.getInstance().currentScreen, Text.translatable("screen.confirmquit.confirm.content.insingleplay"), button::onPress));
+                    MinecraftClient.getInstance().setScreen(new ConfirmScreen(MinecraftClient.getInstance().currentScreen, Text.translatable("screen.confirmquit.confirm.content.insingleplay"), () -> button.onPress(new MouseInput(InputUtil.GLFW_MOUSE_BUTTON_LEFT, 0))));
                     return EventResult.CANCEL;
                 }
                 return EventResult.PASS;
@@ -63,7 +65,7 @@ public class ConfirmQuit {
                     return toastInMultiplayerQuitHandle.trigger();
                 }
                 if (ConfigHelper.getConfig().confirmTypeInMultiplayer == ConfirmType.SCREEN) {
-                    MinecraftClient.getInstance().setScreen(new ConfirmScreen(MinecraftClient.getInstance().currentScreen, Text.translatable("screen.confirmquit.confirm.content.inmultiplay"), button::onPress));
+                    MinecraftClient.getInstance().setScreen(new ConfirmScreen(MinecraftClient.getInstance().currentScreen, Text.translatable("screen.confirmquit.confirm.content.inmultiplay"), () -> button.onPress(new MouseInput(InputUtil.GLFW_MOUSE_BUTTON_LEFT, 0))));
                     return EventResult.CANCEL;
                 }
                 return EventResult.PASS;
