@@ -24,17 +24,6 @@ public class ConfirmScreen extends Screen {
     private boolean confirmed = false;
     public static boolean confirmTextError = false;
 
-    // 按钮宽度
-    private static final int buttonWidth = 150;
-    // 按钮长度
-    private static final int buttonHeight = 20;
-    // 按钮间隔
-    private static final int buttonFMargin = 10;
-    // 按钮下边距
-    private static final int buttonBMargin = 40;
-    // 标题上边距
-    private static final int titleTMargin = 30;
-
     public boolean isConfirmed() {
         return confirmed;
     }
