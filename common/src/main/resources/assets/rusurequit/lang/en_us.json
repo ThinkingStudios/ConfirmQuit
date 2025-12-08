@@ -14,7 +14,7 @@
   "config.rusurequit.confirmtype.none": "Disable",
   "config.rusurequit.screentype.classic": "Classic",
   "config.rusurequit.screentype.bedrock": "Bedrock Edition",
-  "text.autoconfig.rusurequit.title": "ConfirmQuit Settings",
+  "text.autoconfig.rusurequit.title": "RuSureQuit Settings",
   "text.autoconfig.rusurequit.option.confirmTypeInFinalQuit": "When closing the window",
   "text.autoconfig.rusurequit.option.confirmTypeInSingleplayer": "When exiting a single player game",
   "text.autoconfig.rusurequit.option.confirmTypeInMultiplayer": "When exiting a multiplayer game",

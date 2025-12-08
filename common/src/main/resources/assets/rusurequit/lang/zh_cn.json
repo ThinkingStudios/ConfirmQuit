@@ -14,7 +14,7 @@
   "config.rusurequit.confirmtype.none": "关",
   "config.rusurequit.screentype.classic": "经典",
   "config.rusurequit.screentype.bedrock": "基岩版",
-  "text.autoconfig.rusurequit.title": "退出确认-设置",
+  "text.autoconfig.rusurequit.title": "RuSureQuit设置",
   "text.autoconfig.rusurequit.option.confirmTypeInFinalQuit": "当关闭游戏窗口时",
   "text.autoconfig.rusurequit.option.confirmTypeInSingleplayer": "当退出单人游戏时",
   "text.autoconfig.rusurequit.option.confirmTypeInMultiplayer": "当退出多人游戏时",
