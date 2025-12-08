@@ -1,13 +1,12 @@
 package org.thinkingstudio.confirmquit.client.screen.style;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
@@ -74,26 +73,23 @@ public class BedrockStyle extends BaseStyle {
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
                        DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        drawBackground(client, screen, drawContext, mouseX, mouseY, delta);
+        drawBackground(client, screen, drawContext);
         drawWindow(textRenderer, title, drawContext, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
         drawMessage(textRenderer, screen, message, drawContext);
     }
 
-    private void drawBackground(MinecraftClient client, Screen screen, DrawContext drawContext, int mouseX, int mouseY, float delta) {
+    private void drawBackground(MinecraftClient client, Screen screen, DrawContext drawContext) {
         if (client.world != null) {
             drawContext.fillGradient(0, 0, screen.width, screen.height, -1072689136, -804253680);
         } else {
-            screen.renderBackground(drawContext, mouseX, mouseY, delta);
+            screen.renderInGameBackground(drawContext);
         }
     }
 
     private void drawWindow(TextRenderer textRenderer, Text title, DrawContext drawContext, int x, int y) {
-        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.enableBlend();
-        RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
-        drawContext.drawTexture(RenderLayer::getGuiTextured, WINDOW_TEXTURE, x, y, 0.0F, 0.0F, 252, 140, 252, 140);
-        drawContext.drawText(textRenderer, title, x + 8, y + 6, 4210752, false);
+        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND, drawContext);
+        drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0.0F, 0.0F, 252, 140, 252, 140);
+        drawContext.drawText(textRenderer, title, x + 8, y + 6, Colors.DARK_GRAY, false);
     }
 
 
@@ -101,12 +97,12 @@ public class BedrockStyle extends BaseStyle {
         drawContext.drawCenteredTextWithShadow(textRenderer, message,
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin,
-                10526880);
+                Colors.WHITE);
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
             drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     (screen.height - windowHeight) / 2 + windowHeight - messageBMargin - 15,
-                    10526880);
+                    Colors.WHITE);
         }
     }
 }
