@@ -1,6 +1,5 @@
 package org.thinkingstudio.confirmquit.client.screen.style;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
@@ -9,8 +8,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.util.Formatting;
+import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import org.thinkingstudio.confirmquit.client.ConfirmQuit;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
@@ -68,7 +66,7 @@ public class BedrockStyle extends BaseStyle {
         drawContext.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.confirmquit.confirm.textfield.error"),
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 45,
-                TextColor.fromFormatting(Formatting.RED).getRgb());
+                Colors.RED);
     }
 
     @Override
@@ -88,14 +86,10 @@ public class BedrockStyle extends BaseStyle {
     }
 
     private void drawWindow(TextRenderer textRenderer, Text title, DrawContext drawContext, int x, int y) {
-        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        RenderSystem.enableBlend();
-        RenderSystem.setShaderTexture(0, WINDOW_TEXTURE);
+        renderBackground(x, y, x + windowWidth, y + windowHeight, BACKGROUND, drawContext);
         drawContext.drawTexture(WINDOW_TEXTURE, x, y, 0, 0, 252, 140);
         drawContext.drawText(textRenderer, title, x + 8, y + 6, 4210752, false);
     }
-
 
     private void drawMessage(TextRenderer textRenderer, Screen screen, Text message, DrawContext drawContext) {
         drawContext.drawCenteredTextWithShadow(textRenderer, message,

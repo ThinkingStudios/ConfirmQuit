@@ -8,8 +8,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
-import net.minecraft.util.Formatting;
+import net.minecraft.util.Colors;
 import org.thinkingstudio.confirmquit.client.config.ConfigHelper;
 
 public class ClassicStyle extends BaseStyle {
@@ -56,7 +55,7 @@ public class ClassicStyle extends BaseStyle {
         drawContext.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.confirmquit.confirm.textfield.error"),
                 screen.width / 2,
                 screen.height / 2 - 70,
-                TextColor.fromFormatting(Formatting.RED).getRgb());
+                Colors.RED);
     }
 
     @Override
