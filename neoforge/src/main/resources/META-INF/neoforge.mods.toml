@@ -4,34 +4,34 @@ loaderVersion = "[1,)"
 license = "MIT"
 
 [[mods]]
-modId = "confirmquit"
+modId = "rusurequit"
 version = "${version}"
-displayName = "ConfirmQuit"
+displayName = "RuSureQuit"
 authors = "TexTrue, ThinkingStudio, CaaMoe, Xiao_Cozi"
 description = '''
 QuitConfirm unofficial multi-modloader port.
 Add a quit confirm screen/toast to avoid mistakenly quitting the game.
 '''
-logoFile = "assets/confirmquit/icon.png"
+logoFile = "assets/rusurequit/icon.png"
 
 [[mixins]]
-config = "confirmquit.mixins.json"
+config = "rusurequit.mixins.json"
 
-[[dependencies.confirmquit]]
+[[dependencies.rusurequit]]
 modId = "neoforge"
 type = "required"
 versionRange = "[21.0,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.confirmquit]]
+[[dependencies.rusurequit]]
 modId = "minecraft"
 type = "required"
 versionRange = "[1.21,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.confirmquit]]
+[[dependencies.rusurequit]]
 modId = "cloth_config"
 type = "required"
 versionRange = "*"
