@@ -4,12 +4,15 @@ import org.thinkingstudio.rusurequit.client.screen.style.BaseStyle;
 import org.thinkingstudio.rusurequit.client.screen.style.BedrockStyle;
 import org.thinkingstudio.rusurequit.client.screen.style.ClassicStyle;
 import net.minecraft.text.Text;
+import org.thinkingstudio.rusurequit.client.screen.style.OreUIStyle;
 
 import java.util.function.Supplier;
 
 public enum ScreenStyle {
     CLASSIC(Text.translatable("config.rusurequit.screentype.classic"), ClassicStyle::new),
-    BEDROCK(Text.translatable("config.rusurequit.screentype.bedrock"), BedrockStyle::new);
+    BEDROCK(Text.translatable("config.rusurequit.screentype.bedrock"), BedrockStyle::new),
+    OREUI(Text.translatable("config.rusurequit.screentype.oreui"), OreUIStyle::new);
+
     public final Text displayName;
     public final Supplier<BaseStyle> baseStyleSupplier;
 

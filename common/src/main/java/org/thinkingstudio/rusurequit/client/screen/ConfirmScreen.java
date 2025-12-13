@@ -56,7 +56,7 @@ public class ConfirmScreen extends Screen {
     private void initButton() {
         confirmTextField = style.generateConfirmTextField(textRenderer, this);
 
-        confirm = style.generateConfirmButtons(this, button -> {
+        confirm = style.generateConfirmButtons(textRenderer, this, button -> {
             if (ConfigHelper.getConfig().enableTextFieldConfirm) {
                 if (confirmTextField.getText() != null && confirmTextField.getText().equals(ConfigHelper.getConfig().textFieldConfirmText)) {
                     confirmTextError = false;
