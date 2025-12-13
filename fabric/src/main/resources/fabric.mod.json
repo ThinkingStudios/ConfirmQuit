@@ -8,8 +8,7 @@
     "TexTrue", "ThinkingStudio", "CaaMoe", "Xiao_Cozi"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/ThinkingStudios/RuSureQuit"
   },
   "license": "MIT",
   "icon": "assets/rusurequit/icon.png",
