@@ -15,7 +15,8 @@ import org.thinkingstudio.rusurequit.client.RuSureQuit;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
 public class BedrockStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/style/bedrock/window.png");
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/legacyui/window.png");
+    public static final Identifier BACKGROUND = Identifier.ofVanilla("textures/gui/inworld_menu_background.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -60,8 +61,8 @@ public class BedrockStyle extends BaseStyle {
     }
 
     @Override
-    public void drawConfirmTextError(DrawContext drawContext, TextRenderer textRenderer, Screen screen) {
-        drawContext.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
+    public void drawConfirmTextError(DrawContext context, TextRenderer textRenderer, Screen screen) {
+        context.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 45,
                 Colors.RED);
@@ -69,29 +70,29 @@ public class BedrockStyle extends BaseStyle {
 
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                       DrawContext drawContext) {
-        drawWindow(textRenderer, title, drawContext, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
-        drawMessage(textRenderer, screen, message, drawContext);
+                       DrawContext context) {
+        drawWindow(context, textRenderer, title, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
+        drawMessage(context, textRenderer, screen, message);
     }
 
-    private void drawWindow(TextRenderer textRenderer, Text title, DrawContext drawContext, int x, int y) {
+    private void drawWindow(DrawContext context, TextRenderer textRenderer, Text title, int x, int y) {
         int endX = x + windowWidth;
         int endY = y + windowHeight;
         int width = endX - x;
         int height = endY - y;
 
-        drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, INWORLD_MENU_BACKGROUND_TEXTURE, x + 4, y + 4, 0, 0, width - 4, height - 4, 32, 32);
-        drawContext.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0.0F, 0.0F, 252, 140, 252, 140);
-        drawContext.drawText(textRenderer, title, x + 8, y + 6, Colors.DARK_GRAY, false);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, BACKGROUND, x + 4, y + 4, 0, 0, width - 4, height - 4, 32, 32);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0, 0, 252, 140, 252, 140);
+        context.drawText(textRenderer, title, x + 8, y + 6, Colors.BLACK, false);
     }
 
-    private void drawMessage(TextRenderer textRenderer, Screen screen, Text message, DrawContext drawContext) {
-        drawContext.drawCenteredTextWithShadow(textRenderer, message,
+    private void drawMessage(DrawContext context, TextRenderer textRenderer, Screen screen, Text message) {
+        context.drawCenteredTextWithShadow(textRenderer, message,
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin,
                 Colors.WHITE);
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
-            drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
+            context.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     (screen.height - windowHeight) / 2 + windowHeight - messageBMargin - 15,
                     Colors.WHITE);
