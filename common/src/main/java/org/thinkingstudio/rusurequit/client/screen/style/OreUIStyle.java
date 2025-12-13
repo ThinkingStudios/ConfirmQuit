@@ -4,18 +4,23 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.ButtonTextures;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
 import net.minecraft.util.Identifier;
 import org.thinkingstudio.rusurequit.client.RuSureQuit;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
+import org.thinkingstudio.rusurequit.client.screen.widget.SimpleTexturedButtonWidget;
+import org.thinkingstudio.rusurequit.client.util.DrawTexts;
 
-public class BedrockStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/legacyui/window.png");
+public class OreUIStyle extends BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/oreui/window_background.png");
+    private static final ButtonTextures BUTTON_TEXTURES = new ButtonTextures(Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_disabled"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_highlighted"));
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -36,24 +41,34 @@ public class BedrockStyle extends BaseStyle {
 
     @Override
     public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
-        return ButtonWidget.builder(ScreenTexts.YES, onConfirm)
-                .dimensions((screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
-                        (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight,
-                        buttonWidth, buttonHeight).build();
+        return SimpleTexturedButtonWidget.create(
+                (screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
+                (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight + 22,
+                buttonWidth,
+                buttonHeight,
+                BUTTON_TEXTURES,
+                onConfirm,
+                ScreenTexts.YES
+        );
     }
 
     @Override
     public ButtonWidget generateCancelButtons(Screen screen, ButtonWidget.PressAction onCancel) {
-        return ButtonWidget.builder(ScreenTexts.NO, onCancel)
-                .dimensions((screen.width - windowWidth) / 2 + buttonLRMargin,
-                        (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight,
-                        buttonWidth, buttonHeight).build();
+        return SimpleTexturedButtonWidget.create(
+                (screen.width - windowWidth) / 2 + buttonLRMargin,
+                (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight + 22,
+                buttonWidth,
+                buttonHeight,
+                BUTTON_TEXTURES,
+                onCancel,
+                ScreenTexts.NO
+        );
     }
 
     @Override
     public TextFieldWidget generateConfirmTextField(TextRenderer textRenderer, Screen screen) {
         this.textFieldMessage = Text.translatable("screen.rusurequit.confirm.textfield", ConfigHelper.getConfig().textFieldConfirmText);
-        TextFieldWidget confirmTextField = new TextFieldWidget(textRenderer, screen.width / 2 - 100, (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 15, 200, 20, textFieldMessage);
+        TextFieldWidget confirmTextField = new TextFieldWidget(textRenderer, screen.width / 2 - 100, (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 20, 200, 20, textFieldMessage);
         confirmTextField.setVisible(ConfigHelper.getConfig().enableTextFieldConfirm);
 
         return confirmTextField;
@@ -61,9 +76,9 @@ public class BedrockStyle extends BaseStyle {
 
     @Override
     public void drawConfirmTextError(DrawContext context, TextRenderer textRenderer, Screen screen) {
-        context.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
+        DrawTexts.drawCenteredText(context, textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
                 screen.width / 2,
-                (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 45,
+                (screen.height - windowHeight) / 2 + windowHeight - messageBMargin + 50,
                 Colors.RED);
     }
 
@@ -71,22 +86,22 @@ public class BedrockStyle extends BaseStyle {
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
                        DrawContext context, int mouseX, int mouseY, float delta) {
         screen.renderBackground(context, mouseX, mouseY, delta);
-        drawWindow(context, textRenderer, title, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
-        drawMessage(context, textRenderer, screen, message);
+        drawWindow(textRenderer, title, context, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
+        drawMessage(textRenderer, screen, message, context);
     }
 
-    private void drawWindow(DrawContext context, TextRenderer textRenderer, Text title, int x, int y) {
-        context.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0, 0, 252, 140, 252, 140);
-        context.drawText(textRenderer, title, x + 8, y + 6, Colors.BLACK, false);
+    private void drawWindow(TextRenderer textRenderer, Text title, DrawContext context, int x, int y) {
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x - 16, y - 10, 0, 0, 280, 166, 280, 166);
+        DrawTexts.drawCenteredText(context, textRenderer, title, x + windowWidth / 2, y + 2, Colors.WHITE);
     }
 
-    private void drawMessage(DrawContext context, TextRenderer textRenderer, Screen screen, Text message) {
-        context.drawCenteredTextWithShadow(textRenderer, message,
+    private void drawMessage(TextRenderer textRenderer, Screen screen, Text message, DrawContext context) {
+        DrawTexts.drawCenteredText(context, textRenderer, message,
                 screen.width / 2,
                 (screen.height - windowHeight) / 2 + windowHeight - messageBMargin,
                 Colors.WHITE);
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
-            context.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
+            DrawTexts.drawCenteredText(context, textRenderer, textFieldMessage,
                     screen.width / 2,
                     (screen.height - windowHeight) / 2 + windowHeight - messageBMargin - 15,
                     Colors.WHITE);

@@ -26,7 +26,7 @@ public class ClassicStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
         return ButtonWidget.builder(ScreenTexts.YES, onConfirm)
                 .dimensions(screen.width / 2 - buttonWidth - buttonFMargin,
                         screen.height - buttonHeight - buttonBMargin,
@@ -51,8 +51,8 @@ public class ClassicStyle extends BaseStyle {
     }
 
     @Override
-    public void drawConfirmTextError(DrawContext drawContext, TextRenderer textRenderer, Screen screen) {
-        drawContext.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
+    public void drawConfirmTextError(DrawContext context, TextRenderer textRenderer, Screen screen) {
+        context.drawCenteredTextWithShadow(textRenderer, Text.translatable("screen.rusurequit.confirm.textfield.error"),
                 screen.width / 2,
                 screen.height / 2 - 70,
                 Colors.RED);
@@ -60,21 +60,22 @@ public class ClassicStyle extends BaseStyle {
 
     @Override
     public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                       DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        drawTextAndMessage(textRenderer, screen, title, message, drawContext);
+                       DrawContext context, int mouseX, int mouseY, float delta) {
+        screen.renderBackground(context, mouseX, mouseY, delta);
+        drawTextAndMessage(context, textRenderer, screen, title, message);
     }
 
-    private void drawTextAndMessage(TextRenderer textRenderer, Screen screen, Text title, Text message, DrawContext drawContext) {
-        drawContext.drawCenteredTextWithShadow(textRenderer, title,
+    private void drawTextAndMessage(DrawContext context, TextRenderer textRenderer, Screen screen, Text title, Text message) {
+        context.drawCenteredTextWithShadow(textRenderer, title,
                 screen.width / 2,
                 titleTMargin,
                 Colors.WHITE);
-        drawContext.drawCenteredTextWithShadow(textRenderer, message,
+        context.drawCenteredTextWithShadow(textRenderer, message,
                 screen.width / 2,
                 screen.height / 2 - 30,
                 Colors.WHITE);
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
-            drawContext.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
+            context.drawCenteredTextWithShadow(textRenderer, textFieldMessage,
                     screen.width / 2,
                     screen.height / 2 - 50,
                     Colors.WHITE);
