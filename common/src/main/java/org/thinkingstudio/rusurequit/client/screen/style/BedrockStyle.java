@@ -16,7 +16,6 @@ import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
 public class BedrockStyle implements BaseStyle {
     private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/legacyui/window.png");
-    public static final Identifier BACKGROUND = Identifier.ofVanilla("textures/gui/inworld_menu_background.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -78,10 +77,8 @@ public class BedrockStyle implements BaseStyle {
     private void drawWindow(DrawContext context, TextRenderer textRenderer, Text title, int x, int y) {
         int endX = x + windowWidth;
         int endY = y + windowHeight;
-        int width = endX - x;
-        int height = endY - y;
 
-        context.drawTexture(RenderPipelines.GUI_TEXTURED, BACKGROUND, x + 4, y + 4, 0, 0, width - 4, height - 4, 32, 32);
+        context.fillGradient(x + 4, y + 4, endX - 4, endY - 4, -1072689136, -804253680);
         context.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0, 0, 252, 140, 252, 140);
         context.drawText(textRenderer, title, x + 8, y + 6, Colors.BLACK, false);
     }
