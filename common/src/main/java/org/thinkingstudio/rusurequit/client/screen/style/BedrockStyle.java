@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 import org.thinkingstudio.rusurequit.client.RuSureQuit;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
-public class BedrockStyle extends BaseStyle {
+public class BedrockStyle implements BaseStyle {
     private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/legacyui/window.png");
 
     // 窗口宽度
@@ -34,7 +34,7 @@ public class BedrockStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
         return ButtonWidget.builder(ScreenTexts.YES, onConfirm)
                 .dimensions((screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
                         (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight,
