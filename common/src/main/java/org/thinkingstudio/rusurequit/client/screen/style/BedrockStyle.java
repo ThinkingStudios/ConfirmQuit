@@ -14,8 +14,8 @@ import net.minecraft.util.Identifier;
 import org.thinkingstudio.rusurequit.client.RuSureQuit;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
-public class BedrockStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/legacyui/window.png");
+public class BedrockStyle implements BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/legacyui/window.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -35,7 +35,7 @@ public class BedrockStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
         return ButtonWidget.builder(ScreenTexts.YES, onConfirm)
                 .dimensions((screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
                         (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight,
@@ -76,6 +76,10 @@ public class BedrockStyle extends BaseStyle {
     }
 
     private void drawWindow(DrawContext context, TextRenderer textRenderer, Text title, int x, int y) {
+        int endX = x + windowWidth;
+        int endY = y + windowHeight;
+
+        context.fillGradient(x + 4, y + 4, endX - 4, endY - 4, -1072689136, -804253680);
         context.drawTexture(RenderLayer::getGuiTextured, WINDOW_TEXTURE, x, y, 0, 0, 252, 140, 252, 140);
         context.drawText(textRenderer, title, x + 8, y + 6, Colors.BLACK, false);
     }
