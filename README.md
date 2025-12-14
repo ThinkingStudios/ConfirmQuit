@@ -12,3 +12,5 @@ RuSureQuit is a client mod that displays a confirmation window when exiting save
 ## License
 
 This mod is under the `MIT` license.
+
+OreUI Button textures take from [OreUI-Recreation by tmc249](https://github.com/thetmc249/OreUI-Recreation). They are under the `MIT` license.
