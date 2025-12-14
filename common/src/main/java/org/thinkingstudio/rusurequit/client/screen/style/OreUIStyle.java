@@ -8,7 +8,6 @@ import net.minecraft.client.gui.screen.ButtonTextures;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
@@ -18,8 +17,8 @@ import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 import org.thinkingstudio.rusurequit.client.screen.widget.SimpleTexturedButtonWidget;
 import org.thinkingstudio.rusurequit.client.util.DrawTexts;
 
-public class OreUIStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/oreui/window_background.png");
+public class OreUIStyle implements BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/oreui/window_background.png");
     private static final ButtonTextures BUTTON_TEXTURES = new ButtonTextures(Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_disabled"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_highlighted"));
 
     // 窗口宽度
@@ -40,7 +39,7 @@ public class OreUIStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
         return SimpleTexturedButtonWidget.create(
                 (screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
                 (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight + 22,

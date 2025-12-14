@@ -8,8 +8,8 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 
-public abstract class BaseStyle {
-    public abstract ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm);
+public interface BaseStyle {
+    public abstract ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm);
 
     public abstract ButtonWidget generateCancelButtons(Screen screen, ButtonWidget.PressAction onCancel);
 
