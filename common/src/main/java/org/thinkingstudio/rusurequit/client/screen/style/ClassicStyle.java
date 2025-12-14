@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
-public class ClassicStyle extends BaseStyle {
+public class ClassicStyle implements BaseStyle {
     // 按钮宽度
     private static final int buttonWidth = 150;
     // 按钮长度
@@ -26,7 +26,7 @@ public class ClassicStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
         return ButtonWidget.builder(ScreenTexts.YES, onConfirm)
                 .dimensions(screen.width / 2 - buttonWidth - buttonFMargin,
                         screen.height - buttonHeight - buttonBMargin,

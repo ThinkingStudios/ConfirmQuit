@@ -15,9 +15,9 @@ import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 import org.thinkingstudio.rusurequit.client.screen.widget.SimpleTexturedButtonWidget;
 import org.thinkingstudio.rusurequit.client.util.DrawTexts;
 
-public class OreUIStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/oreui/window_background.png");
-    private static final Identifier BUTTON_TEXTURES = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/oreui/button.png");
+public class OreUIStyle implements BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/oreui/window_background.png");
+    private static final Identifier BUTTON_TEXTURES = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/oreui/button.png");
 
     // 窗口宽度
     private static final int windowWidth = 252;
@@ -37,7 +37,7 @@ public class OreUIStyle extends BaseStyle {
     private Text textFieldMessage;
 
     @Override
-    public ButtonWidget generateConfirmButtons(TextRenderer textRenderer, Screen screen, ButtonWidget.PressAction onConfirm) {
+    public ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm) {
         return new SimpleTexturedButtonWidget(
                 (screen.width - windowWidth) / 2 + windowWidth - buttonWidth - buttonLRMargin,
                 (screen.height - windowHeight) / 2 + windowHeight - buttonBMargin - buttonHeight + 22,
