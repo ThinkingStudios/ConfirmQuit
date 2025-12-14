@@ -9,14 +9,13 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 
 public interface BaseStyle {
-    public abstract ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm);
+    ButtonWidget generateConfirmButtons(Screen screen, ButtonWidget.PressAction onConfirm);
 
-    public abstract ButtonWidget generateCancelButtons(Screen screen, ButtonWidget.PressAction onCancel);
+    ButtonWidget generateCancelButtons(Screen screen, ButtonWidget.PressAction onCancel);
 
-    public abstract TextFieldWidget generateConfirmTextField(TextRenderer textRenderer, Screen screen);
+    TextFieldWidget generateConfirmTextField(TextRenderer textRenderer, Screen screen);
 
-    public abstract void drawConfirmTextError(DrawContext context, TextRenderer textRenderer, Screen screen);
+    void drawConfirmTextError(DrawContext context, TextRenderer textRenderer, Screen screen);
 
-    public abstract void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                                DrawContext context, int mouseX, int mouseY, float delta);
+    void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message, DrawContext context);
 }

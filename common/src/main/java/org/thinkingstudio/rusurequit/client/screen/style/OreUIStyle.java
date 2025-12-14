@@ -82,9 +82,7 @@ public class OreUIStyle implements BaseStyle {
     }
 
     @Override
-    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                       DrawContext context, int mouseX, int mouseY, float delta) {
-        screen.renderBackground(context, mouseX, mouseY, delta);
+    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message, DrawContext context) {
         drawWindow(textRenderer, title, context, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
         drawMessage(textRenderer, screen, message, context);
     }

@@ -68,14 +68,16 @@ public class BedrockStyle implements BaseStyle {
     }
 
     @Override
-    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                       DrawContext context, int mouseX, int mouseY, float delta) {
-        screen.renderBackground(context, mouseX, mouseY, delta);
+    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message, DrawContext context) {
         drawWindow(context, textRenderer, title, (screen.width - windowWidth) / 2, (screen.height - windowHeight) / 2);
         drawMessage(context, textRenderer, screen, message);
     }
 
     private void drawWindow(DrawContext context, TextRenderer textRenderer, Text title, int x, int y) {
+        int endX = x + windowWidth;
+        int endY = y + windowHeight;
+
+        context.fillGradient(x + 4, y + 4, endX - 4, endY - 4, -1072689136, -804253680);
         context.drawTexture(RenderPipelines.GUI_TEXTURED, WINDOW_TEXTURE, x, y, 0, 0, 252, 140, 252, 140);
         context.drawText(textRenderer, title, x + 8, y + 6, Colors.BLACK, false);
     }

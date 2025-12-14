@@ -59,9 +59,7 @@ public class ClassicStyle implements BaseStyle {
     }
 
     @Override
-    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message,
-                       DrawContext context, int mouseX, int mouseY, float delta) {
-        screen.renderBackground(context, mouseX, mouseY, delta);
+    public void render(MinecraftClient client, TextRenderer textRenderer, Screen screen, Text title, Text message, DrawContext context) {
         drawTextAndMessage(context, textRenderer, screen, title, message);
     }
 

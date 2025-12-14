@@ -81,7 +81,7 @@ public class ConfirmScreen extends Screen {
 
     @Override
     public void render(DrawContext drawContext, int mouseX, int mouseY, float delta) {
-        style.render(this.client, this.textRenderer, this, title, message, drawContext, mouseX, mouseY, delta);
+        style.render(this.client, this.textRenderer, this, title, message, drawContext);
         super.render(drawContext, mouseX, mouseY, delta);
 
         if (ConfigHelper.getConfig().enableTextFieldConfirm) {
