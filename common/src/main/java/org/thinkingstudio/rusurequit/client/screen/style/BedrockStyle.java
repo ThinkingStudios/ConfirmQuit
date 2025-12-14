@@ -14,8 +14,8 @@ import net.minecraft.util.Identifier;
 import org.thinkingstudio.rusurequit.client.RuSureQuit;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
-public class BedrockStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/legacyui/window.png");
+public class BedrockStyle implements BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/legacyui/window.png");
     public static final Identifier BACKGROUND = Identifier.ofVanilla("textures/gui/inworld_menu_background.png");
 
     // 窗口宽度

@@ -11,7 +11,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Colors;
 import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 
-public class ClassicStyle extends BaseStyle {
+public class ClassicStyle implements BaseStyle {
     // 按钮宽度
     private static final int buttonWidth = 150;
     // 按钮长度

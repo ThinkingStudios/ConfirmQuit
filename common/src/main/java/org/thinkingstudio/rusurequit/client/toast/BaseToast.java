@@ -9,9 +9,9 @@ import net.minecraft.util.Identifier;
 import org.thinkingstudio.rusurequit.client.RuSureQuit;
 
 public abstract class BaseToast implements Toast {
-    protected static final Identifier TEXTURE_DARK = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toast/background_dark.png");
-    protected static final Identifier TEXTURE_LIGHT = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toast/background_light.png");
-    protected static final Identifier ICON = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toast/icon.png");
+    protected static final Identifier TEXTURE_DARK = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toasts/background_dark.png");
+    protected static final Identifier TEXTURE_LIGHT = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toasts/background_light.png");
+    protected static final Identifier ICON = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/toasts/icon.png");
 
     protected final Text title;
     protected final Text message;

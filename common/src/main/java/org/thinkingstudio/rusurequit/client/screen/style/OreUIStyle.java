@@ -17,8 +17,8 @@ import org.thinkingstudio.rusurequit.client.config.ConfigHelper;
 import org.thinkingstudio.rusurequit.client.screen.widget.SimpleTexturedButtonWidget;
 import org.thinkingstudio.rusurequit.client.util.DrawTexts;
 
-public class OreUIStyle extends BaseStyle {
-    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/bedrock/oreui/window_background.png");
+public class OreUIStyle implements BaseStyle {
+    private static final Identifier WINDOW_TEXTURE = Identifier.of(RuSureQuit.MOD_ID, "textures/gui/styles/bedrock/oreui/window_background.png");
     private static final ButtonTextures BUTTON_TEXTURES = new ButtonTextures(Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_disabled"), Identifier.of(RuSureQuit.MOD_ID, "widget/oreui/button_highlighted"));
 
     // 窗口宽度
