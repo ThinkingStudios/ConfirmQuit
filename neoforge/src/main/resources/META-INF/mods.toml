@@ -7,6 +7,7 @@ license = "MIT"
 modId = "rusurequit"
 version = "${version}"
 displayName = "RuSureQuit"
+displayURL = "https://github.com/ThinkingStudio/RuSureQuit"
 authors = "TexTrue, ThinkingStudio, CaaMoe, Xiao_Cozi"
 description = '''
 QuitConfirm unofficial multi-modloader port.

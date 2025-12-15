@@ -1,6 +1,7 @@
-# ConfirmQuit
+# RuSureQuit
 
-ConfirmQuit is a client mod that displays a confirmation window when exiting saves, multiplayer sessions, or realm worlds to prevent accidental exits.
+QuitConfirm unofficial multi-modloader port.
+RuSureQuit is a client mod that displays a confirmation window when exiting saves, multiplayer sessions, or realm worlds to prevent accidental exits.
 
 ## Features
 
@@ -10,4 +11,6 @@ ConfirmQuit is a client mod that displays a confirmation window when exiting sav
 
 ## License
 
-`ConfirmQuit` is under the `MIT` license.
+This mod is under the `MIT` license.
+
+OreUI Button textures take from [OreUI-Recreation by tmc249](https://github.com/thetmc249/OreUI-Recreation). They are under the `MIT` license.
