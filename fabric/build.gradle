@@ -51,3 +51,30 @@ shadowJar {
 remapJar {
     inputFile.set shadowJar.archiveFile
 }
+
+publisher {
+    apiKeys {
+        modrinth System.getenv("MODRINTH_TOKEN")
+        curseforge System.getenv("CURSEFORGE_TOKEN")
+    }
+
+    setCurseID("$rootProject.curseforge_id")
+    setModrinthID("$rootProject.modrinth_id")
+    setVersionType("release")
+    setChangelog(rootProject.file("CHANGELOG.md").getText("UTF-8"))
+    setVersion("${project.version}")
+    setDisplayName("${project.version}")
+    setGameVersions("1.21.9", "1.21.10")
+    setLoaders(loom.platform.get().id())
+    setCurseEnvironment("client")
+    setArtifact(remapJar)
+    addAdditionalFile(sourcesJar)
+    curseDepends {
+        required("fabric-api", "cloth-config")
+        optional("modmenu")
+    }
+    modrinthDepends {
+        required("fabric-api", "cloth-config")
+        optional("modmenu")
+    }
+}
