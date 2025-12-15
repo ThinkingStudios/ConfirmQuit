@@ -16,7 +16,7 @@ Add a quit confirm screen/toast to avoid mistakenly quitting the game.
 logoFile = "assets/rusurequit/icon.png"
 
 [[mixins]]
-config = "confirmquit.mixins.json"
+config = "rusurequit.mixins.json"
 
 [[dependencies.rusurequit]]
 modId = "neoforge"
